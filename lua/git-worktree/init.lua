@@ -192,6 +192,9 @@ local function create_worktree_job(path, branch, found_branch, base_branch)
             table.insert(worktree_add_args, path)
             table.insert(worktree_add_args, base_branch)
         end
+    else
+        table.insert(worktree_add_args, path)
+        table.insert(worktree_add_args, branch)
     end
 
     return Job:new({
