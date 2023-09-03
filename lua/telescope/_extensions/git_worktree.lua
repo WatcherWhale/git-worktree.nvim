@@ -181,6 +181,10 @@ local create_worktree = function(opts)
                 name = branch
             end
 
+            if string.match(name, '/') == nil and git_worktree._config.base_directory then
+                name = git_worktree._config.base_directory .. name
+            end
+
             local has_branch = git_worktree.has_branch(branch)
 
             if not has_branch then
